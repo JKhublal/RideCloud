@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>RideCloud - Access Forbidden</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<a id='nodec' href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+		<h3 id='ctrgrn'>The Lo-Fi Cycling Journal</h3>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for i in messages %}
+		<h3 id='ctrora'><em>{{i}}</em></h3>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+
+		<div id="ctrgrn">
+			<a style="color: green;" href ="{{url_for('dashboard', user_id = user_id)}}">Click here to return to your dashboard</a>
+		</div>
+
+		
+	</body>
+</html>

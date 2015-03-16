@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>RideCloud</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<a id="nodec" href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+		<h3 id="ctrgrn">The Lo-Fi Cycling Journal</h3>
+
+		{% if user_id %}
+		<div id="ctrora">
+			<h3><a style="text-decoration: none; color: orange;" href="{{url_for('dashboard', user_id = user_id)}}">Return to your Dashboard</a></h3> 
+		</div>
+		{% endif %}
+
+		<div style="text-align: center;">
+		<div id="showtotal">
+			<ul>
+			<h3><li>RideCloud is one of Jaime Khublal's personal projects.</li></h3>
+			<h3><li>He is currently seeking employment as a back-end, full stack, or software developer in the Denver/Boulder, CO area.</li></h3>
+			<h3><li>Please e-mail jkhublal (*AT*) gmail (*DOT*) com for more information.</li></h3>
+			</br>
+			<h2>Why RideCloud?</h2>
+			<h3><li>RideCloud is an easy-to-use, minimal, "lo-fi" ride logging application.</li></h3>
+			<h3><li>It won't tell you if you have the fastest time on your local hillclimb.</li></h3>
+			<h3><li>It also won't tell potential thieves where to find your beloved bicycle and when it's likely to be there.</li></h3>
+			</br>
+			<h2>RideCloud is Open Source!</h2>
+			<h3><li>RideCloud runs on a Python/Flask back-end. SQL Alchemy is used to interact with a SQLite database.</li></h3>
+			<h3><li>View the source code for RideCloud on <a style ="color: orange;"href="">GitHub</a>.</li></h3>
+			<h3><li>For access to the RideCloud API, send an e-mail to the address listed above.</li></h3>
+			<h2>More features coming soon! Ride lots and check back often!</h2>
+			</ul>
+			</br>
+			<h3>Background image from <a style ="color: orange;"href="http://www.velodramatic.com">VeloDramatic</a>.</h3>
+			<p>If you are the owner of this image and would like it removed, please send an e-mail to the address listed above.</p>
+		</div>
+		</div>
+
+	</body>
+</html>

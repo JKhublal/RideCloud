@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>RideCloud - Edit a Ride</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<a id="nodec" href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+		<h3 id='ctrgrn'>The Lo-Fi Cycling Journal</h3>
+		<h3 id='ctrora'><em>Edit a Ride</em></h3>
+		<h3 id='ctrora'><em>All fields are required. Enter "0" if unknown.</em></h3>
+	 	<form action ="{{url_for('editRide', user_id = user_id, ride_id = ride_id)}}" method = 'POST'>
+			<div id="enterdata">
+				<p>Date (YYYY-MM-DD):</p>
+				<input type='text' name='date' value='{{exData.date}}' required>
+				<p>Description:</p>
+				<input type='text' size='30' name='description' value='{{exData.description}}'>
+				<p>Hours:</p>
+				<input type='text' name = 'hours' value='{{exData.hours}}' required>
+				<p>Minutes:</p>
+				<input type='text' name = 'minutes' max='59' value='{{exData.minutes}}' required>
+				<p>Seconds:</p>
+				<input type='text' name = 'seconds' max='59' value='{{exData.seconds}}' required>
+				<p>Distance (miles):</p>
+				<input type='text' name = 'distance' value='{{exData.distance}}' required>
+				<p>Elevation Gain (feet):</p>
+				<input type='text' name = 'elevation' value='{{exData.elevation}}' required>
+				<p>Average Speed (enter '0' to calculate automatically):</p>
+				<input type='text' name = 'avgSpeed' value='{{exData.avgSpeed}}' required>
+				<p>Maximum Speed:</p>
+				<input type='text' name = 'maxSpeed' value='{{exData.maxSpeed}}' required>
+				<p>Average Heart Rate:</p>
+				<input type='text' name = 'avgHR' value='{{exData.avgHR}}' required>
+				<p>Maximum Heart Rate:</p>
+				<input type='text' name = 'maxHR' value='{{exData.maxHR}}' required>
+				<p>Weather:</p>
+				<input type='text' size='30' name = 'weather' value='{{exData.weather}}'>
+				<p>Comments:</p>
+				<input type='text' size='30' name = 'comments' value='{{exData.comments}}'>
+				</br>
+				</br>
+				<input type='submit' value='Edit'>
+				</br>
+			</div>
+		</form>
+	</body>
+</html>

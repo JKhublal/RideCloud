@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>RideCloud - New User</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+	<a id="nodec" href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+	<h3 id="ctrgrn">The Lo-Fi Cycling Journal</h3>
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for i in messages %}
+	<h3 id='ctrora'><em>{{i}}</em></h3>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+	<form action ="{{url_for('newUser')}}" method = 'POST'>
+		<div style="text-align: center;">
+		<div id="showtotal">
+			<h3>Choose a user name:</h3>
+			<input type='text' size = '30' name = 'name'>
+			<h3>Choose a password (10 characters or less):</h3>
+			<input type='password' size = '30' name = 'password'>
+			<h3>Re-enter your password for confirmation:</h3>
+			<input type='password' size = '30' name = 'passconf'>
+			<input type='submit' value='Confirm'>
+			<h3 style="color: red;">**USE A UNIQUE PASSWORD**</h3> 
+			<h3 style="color: red;">**DO NOT USE THE SAME PASSWORD YOU USE FOR YOUR SENSITIVE ACCOUNTS!!!**</h3>
+		</div>
+		</div>
+	</form>
+
+
+	</body>
+</html>

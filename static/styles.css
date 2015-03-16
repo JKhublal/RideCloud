@@ -1,0 +1,40 @@
+body {
+	background-image: url('background.jpg');
+	background-attachment: fixed;
+	background-position: center;
+}
+#nodec {
+	text-decoration: none;
+}
+
+#ctrgrn {
+	text-align: center; color: green;
+}
+
+#ctrora {
+	text-align: center; color: orange; 
+}
+
+#showdata {
+	margin: 0 auto; text-align: left; color: yellow; background-color: #3e403b; width: 500px;
+}
+
+#enterdata {
+	margin: 0 auto; text-align: center; color: yellow; background-color: #3e403b; width: 300px;
+}
+
+#showtotal {
+	color: yellow; background-color: #3e403b; display: inline-block;
+}
+
+a h1 {
+	text-align: center;
+	color: green;
+}
+
+
+/* Doesn't work... tbody tr td:first-child:before
+{
+  counter-increment: Serial;     
+  content: counter(Serial); 	
+} */

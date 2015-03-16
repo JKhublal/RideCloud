@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>RideCloud - Dashboard</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<a id="nodec" href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+		<h3 style id='ctrgrn'>The Lo-Fi Cycling Journal</h3>
+		<h1 style = "text-align: center; color: red;">Are you sure you want to delete this ride?</h1>
+		<form action ="{{url_for('deleteRide', user_id = user_id, ride_id = ride_id)}}" method = "POST">
+		<div style="margin: 0 auto; text-align: center;">
+			<input type="submit" name ="button" value="Delete Ride"/>
+			<input type="submit" name = "button" value="Cancel"/>
+		</div>
+		</form>
+
+
+	</body>
+</html>

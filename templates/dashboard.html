@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>RideCloud - Dashboard</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<a id='nodec' href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+		<h3 id='ctrgrn'>The Lo-Fi Cycling Journal</h3>
+		<h1 id='ctrgrn'>{{userData.name}}'s Dashboard</h1>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		{% for i in messages %}
+		<h3 id='ctrora'><em>{{i}}</em></h3>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+
+		<div id="ctrora">
+			<a style="text-decoration: none; color: orange;" href="{{url_for('addRide', user_id = userData.id)}}"><h3>Add a Ride</a> |
+			<a style="text-decoration: none; color: orange;" href="{{url_for('leaderboards', user_id = userData.id)}}">View Leaderboards</a> |
+			<a style="text-decoration: none; color: orange;" href="{{url_for('aboutLog', user_id = userData.id)}}">About RideCloud</h3></a>
+			{% if totalRides == 0 %}
+			<a style ="text-decoration: none; color: red;" href="{{url_for('addRide', user_id = userData.id)}}"><h3 style="text-align: center;"><em>You have not logged any rides yet. Click here to add a ride.</em></h3></a>
+		</div>
+
+		{% else %}
+		<div style="text-align: center;">
+		<div id="showtotal">
+			<h3>Total Rides: {{overall.totalRides}} | Total Miles: {{overall.totalMiles}} | Total Elevation Gain (feet): {{overall.totalElevation}} | Total Ride Time: {{displayHours}}:{{displayMinutes}}:{{displaySeconds}}</h3>
+			<h3>Average Speed: {{overall.avgSpeed}} mph | Average HR: {{overall.avgHR}} | Max HR: {{overall.maxHR}}</h3>
+			<h3>Longest Ride: {{overall.maxDistance}} miles | Max Elevation Gain: {{overall.maxElevation}} ft. | Top Speed: {{overall.maxSpeed}} mph</h3>
+		</div>
+		</div>
+		{% endif %}
+
+		{% for i in userRides %}
+		<div id="showdata">
+			<h3>Date: {{i.date}} | Description: {{i.description}}</h3>
+			<!--Format minutes and seconds to always display 2 digits -->
+			{% if i.minutes < 10 and i.seconds < 10%}
+			<h3>Ride time: {{i.hours}}:0{{i.minutes}}:0{{i.seconds}}</h3>
+			{% elif i.minutes < 10 %}
+			<h3>Ride time: {{i.hours}}:0{{i.minutes}}:{{i.seconds}}</h3>
+			{% elif i.seconds < 10 %}
+			<h3>Ride time: {{i.hours}}:{{i.minutes}}:0{{i.seconds}}</h3>
+			{% else %}
+			<h3>Ride time: {{i.hours}}:{{i.minutes}}:{{i.seconds}}</h3>
+			{% endif %}
+			<h3>Distance: {{i.distance}} miles | Elevation Gain: {{i.elevation}} feet</h3>
+			<h3>Average Speed: {{i.avgSpeed}} mph | Max. Speed: {{i.maxSpeed}} mph</h3>
+			<h3>Average Heart Rate: {{i.avgHR}} | Max. Heart Rate: {{i.maxHR}}</h3>
+			<h3>Weather: <span style ="color: orange;">{{i.weather}}</span></h3>
+			<h3>Comments: <span style ="color: orange;">{{i.comments}}</span></h3>
+			<a style ="color: orange" href="{{url_for('editRide', user_id = userData.id, ride_id = i.id)}}">Edit Ride</a> |
+			<a style ="color: orange" href="{{url_for('deleteRide', user_id = userData.id, ride_id = i.id)}}">Delete Ride</a>
+			<span style="background-color: none;"></span>
+		</div>
+
+		{% endfor %}
+
+	</body>
+</html>

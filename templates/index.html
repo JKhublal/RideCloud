@@ -1,0 +1,20 @@
+<html>
+	<head>
+		<title>RideCloud</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	</head>
+	<body>
+		<a id="nodec" href="{{url_for('mainPage')}}"><h1>RideCloud</h1></a>
+		<h3 id="ctrgrn">The Lo-Fi Cycling Journal</h3>
+
+		<div style="text-align: center;">
+		<div id="showtotal">
+			<a style="color: orange; text-decoration: none" href ="{{url_for('newUser')}}"> Create a new account</a> |
+			<a style="color: orange; text-decoration: none" href ="{{url_for('userLogin')}}">Log in</a> |
+			<a style="color: orange; text-decoration: none" href ="{{url_for('about')}}">About RideCloud </a>
+		</div>
+		</div>
+
+
+	</body>
+</html>
